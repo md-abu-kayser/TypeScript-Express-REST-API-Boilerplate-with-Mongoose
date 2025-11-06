@@ -4,11 +4,7 @@ import studentValidationSchema from './student.validation';
 
 const createStudent = async (req: Request, res: Response) => {
   try {
-    //creating a schema validation suing Jot
-
     const { student: studentData } = req.body;
-
-    // data validation using Joi
     const { error, value } = studentValidationSchema.validate(studentData);
 
     const result = await StudentServices.createStudentIntoDB(value);
